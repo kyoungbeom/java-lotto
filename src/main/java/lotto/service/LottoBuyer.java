@@ -3,12 +3,13 @@ package lotto.service;
 import lotto.model.BoughtLotto;
 import lotto.model.WinningRecord;
 import lotto.model.WinningLotto;
+import lotto.utility.Validator;
 
 import java.util.*;
 
-public class LottoBuyer {
-    private static final int LOTTO_PRICE = 1000;
+import static lotto.service.LottoSeller.LOTTO_PRICE;
 
+public class LottoBuyer {
     private final List<BoughtLotto> boughtLottos;
 
     public LottoBuyer() {
@@ -16,9 +17,7 @@ public class LottoBuyer {
     }
 
     public static void checkCanBuyLotto(int buyAmount, int manualLottoCount) {
-        if (manualLottoCount * LOTTO_PRICE > buyAmount) {
-            throw new IllegalArgumentException("구매할 수 있는 로또의 최대 개수를 초과하였습니다.");
-        }
+        Validator.isValidManualLottoCount(buyAmount, manualLottoCount);
     }
 
     public static int calculateAutoLottoCount(int buyAmount, int manualLottoCount) {

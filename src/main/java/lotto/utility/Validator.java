@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static java.util.Arrays.stream;
+import static lotto.service.LottoSeller.LOTTO_PRICE;
 
 public class Validator {
     private static final String NUMBERS_FORMAT = "^\\d{1,2}(,\\s\\d{1,2}){5}$";
@@ -65,4 +66,15 @@ public class Validator {
         }
     }
 
+    public static void isValidRank(int rank) {
+        if(rank < 0 || rank > 5) {
+            throw new IllegalArgumentException("로또의 등수는 0등부터 5등까지만 가능합니다.");
+        }
+    }
+
+    public static void isValidManualLottoCount(int buyAmount, int manualLottoCount) {
+        if (manualLottoCount * LOTTO_PRICE > buyAmount) {
+            throw new IllegalArgumentException("구매할 수 있는 로또의 최대 개수를 초과하였습니다.");
+        }
+    }
 }
