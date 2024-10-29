@@ -2,17 +2,27 @@ package lotto.model;
 
 import lotto.utility.Validator;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class BoughtLotto {
-    private List<LottoNumber> numbers;
+    private static final Map<Integer, LottoNumber> LOTTO_NUMBER = new HashMap<>();
+
+    static {
+        for(int i = 1; i <= 45; i++) {
+            LOTTO_NUMBER.put(i, new LottoNumber(i));
+        }
+    }
+
+    private final List<LottoNumber> numbers;
 
     public BoughtLotto(List<Integer> numbers) {
         Validator.isValidNumbers(numbers);
 
         this.numbers = numbers.stream()
-                .map(LottoNumber::new)
+                .map(LOTTO_NUMBER::get)
                 .collect(Collectors.toList());
     }
 
