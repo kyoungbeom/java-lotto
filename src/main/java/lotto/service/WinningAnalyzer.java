@@ -1,6 +1,7 @@
 package lotto.service;
 
 import lotto.model.BoughtLotto;
+import lotto.model.PrizeRecord;
 import lotto.model.WinningLotto;
 import lotto.model.WinningRecord;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WinningAnalyzer {
-    private static final int[] prize = {0, 2_000_000_000, 30_000_000, 1_500_000, 50_000, 5_000};
+    private static final int[] PRIZE = {0, 2_000_000_000, 30_000_000, 1_500_000, 50_000, 5_000};
 
     private WinningAnalyzer() {
     }
@@ -31,7 +32,7 @@ public class WinningAnalyzer {
         Map<Integer, WinningRecord> winningStatistics = new HashMap<>();
 
         for (int rank = 0; rank <= 5; rank++) {
-            winningStatistics.put(rank, new WinningRecord(rank, prize[rank], 0));
+            winningStatistics.put(rank, new WinningRecord(rank, new PrizeRecord(PRIZE[rank], 0)));
         }
 
         return winningStatistics;

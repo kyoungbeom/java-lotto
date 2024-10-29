@@ -6,9 +6,9 @@ public class WinningRecord {
     private int matchCount;
     private PrizeRecord prizeRecord;
 
-    public WinningRecord(int rank, int prize, int winningCount) {
+    public WinningRecord(int rank, PrizeRecord prizeRecord) {
         this.matchCount = MATCH_COUNT_BY_RANK[rank];
-        this.prizeRecord = new PrizeRecord(prize, winningCount);
+        this.prizeRecord = prizeRecord;
     }
 
     public void increaseWinningCount() {
