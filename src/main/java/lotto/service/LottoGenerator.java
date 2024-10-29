@@ -3,7 +3,6 @@ package lotto.service;
 import java.util.*;
 
 public class LottoGenerator {
-
     private static final Random RANDOM = new Random();
 
     private LottoGenerator() {

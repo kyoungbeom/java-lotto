@@ -37,5 +37,5 @@ public class LottoController {
         float returnRate = lottoBuyer.checkReturnRate(buyAmount, winningStatistics);
         ResultView.printReturnRate(returnRate);
     }
-    
+
 }

@@ -1,13 +1,16 @@
 package lotto.model;
 
-public class WinningRecord {
-    private static final int[] MATCH_COUNT_BY_RANK = {0, 6, 5, 5, 4, 3};
+import lotto.utility.Validator;
 
-    private int matchCount;
-    private PrizeRecord prizeRecord;
+public class WinningRecord {
+
+    private final WinningRank winningRank;
+    private final PrizeRecord prizeRecord;
 
     public WinningRecord(int rank, PrizeRecord prizeRecord) {
-        this.matchCount = MATCH_COUNT_BY_RANK[rank];
+        Validator.isValidRank(rank);
+
+        this.winningRank = WinningRank.getWinningRank(rank);
         this.prizeRecord = prizeRecord;
     }
 
@@ -28,7 +31,7 @@ public class WinningRecord {
     }
 
     public int getMatchCount() {
-        return this.matchCount;
+        return winningRank.getMatchCount();
     }
 
 }

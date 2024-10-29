@@ -51,16 +51,16 @@ public class LottoBuyerTest {
     public void checkLottoResult() {
         LottoBuyer lottoBuyer = new LottoBuyer();
         
-        lottoBuyer.buyManualLotto(new ArrayList<>(List.of(1, 3, 5, 7, 9, 11)));
+        lottoBuyer.buyManualLotto(new ArrayList<>(List.of(1, 2, 5, 3, 4, 11)));
         lottoBuyer.buyManualLotto(new ArrayList<>(List.of(2, 4, 6, 8, 10, 12)));
 
-        Map<Integer, WinningRecord> winningStatistics = lottoBuyer.checkLottoResult("1, 2, 3, 4, 5, 6", 7);
+        Map<Integer, WinningRecord> winningStatistics = lottoBuyer.checkLottoResult("1, 2, 3, 4, 5, 6", 11);
 
         assertThat(winningStatistics.get(1).getWinningCount()).isEqualTo(0);
-        assertThat(winningStatistics.get(2).getWinningCount()).isEqualTo(0);
+        assertThat(winningStatistics.get(2).getWinningCount()).isEqualTo(1);
         assertThat(winningStatistics.get(3).getWinningCount()).isEqualTo(0);
         assertThat(winningStatistics.get(4).getWinningCount()).isEqualTo(0);
-        assertThat(winningStatistics.get(5).getWinningCount()).isEqualTo(2);
+        assertThat(winningStatistics.get(5).getWinningCount()).isEqualTo(1);
         assertThat(winningStatistics.get(0).getWinningCount()).isEqualTo(0);
     }
 

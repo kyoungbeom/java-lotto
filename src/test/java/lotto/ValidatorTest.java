@@ -54,4 +54,24 @@ public class ValidatorTest {
                 .hasMessage("지난 주 당첨 번호와 보너스 볼이 중복 되었습니다.");
     }
 
+    @Test
+    @DisplayName("유효한 로또 등수인지 확인하는 테스트")
+    public void isValidRank() {
+        assertThatThrownBy(() -> Validator.isValidRank(-1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("로또의 등수는 0등부터 5등까지만 가능합니다.");
+
+        assertThatThrownBy(() -> Validator.isValidRank(6))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("로또의 등수는 0등부터 5등까지만 가능합니다.");
+    }
+
+    @Test
+    @DisplayName("가진 금액으로 로또를 구매할 수 있는지 확인하는 테스트")
+    public void checkCanBuyLotto() {
+        assertThatThrownBy(() -> Validator.isValidManualLottoCount(10000, 11))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("구매할 수 있는 로또의 최대 개수를 초과하였습니다.");
+    }
+
 }

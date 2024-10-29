@@ -34,7 +34,7 @@ public class WinningLotto {
         int matchCount = countMatchNumbers(boughtLotto.getNumbers());
         boolean isMatchBonus = checkBoughtLottoMatchBonusNumber(boughtLotto.getNumbers());
 
-        if(matchCount == 5 && isMatchBonus) {
+        if (matchCount == 5 && isMatchBonus) {
             return 2;
         }
 

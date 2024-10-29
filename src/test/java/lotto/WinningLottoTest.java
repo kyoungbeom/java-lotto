@@ -23,5 +23,4 @@ public class WinningLottoTest {
         assertThat(winningLotto.determineRank(boughtLotto)).isEqualTo(2);
     }
 
-
 }

@@ -1,8 +1,7 @@
 package lotto.model;
 
 public class PrizeRecord {
-
-    private int prize;
+    private final int prize;
     private int winningCount;
 
     public PrizeRecord(int prize, int winningCount) {

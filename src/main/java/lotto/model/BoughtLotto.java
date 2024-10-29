@@ -11,7 +11,7 @@ public class BoughtLotto {
     private static final Map<Integer, LottoNumber> LOTTO_NUMBER = new HashMap<>();
 
     static {
-        for(int i = 1; i <= 45; i++) {
+        for (int i = 1; i <= 45; i++) {
             LOTTO_NUMBER.put(i, new LottoNumber(i));
         }
     }
