@@ -10,8 +10,8 @@ import static java.util.Arrays.stream;
 public class WinningLotto {
     private static final int[] RANK_BY_MATCH_COUNT = {0, 0, 0, 5, 4, 3, 1};
 
-    private List<LottoNumber> numbers;
-    private LottoNumber bonusNumber;
+    private final List<LottoNumber> numbers;
+    private final LottoNumber bonusNumber;
 
     public WinningLotto(String winningNumbers, int bonusNumber) {
         Validator.isValidBonusNumber(winningNumbers, bonusNumber);
