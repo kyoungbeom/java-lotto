@@ -2,11 +2,21 @@ package lotto.model;
 
 import lotto.utility.Validator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LottoNumber {
+    private static final Map<Integer, LottoNumber> LOTTO_NUMBER = new HashMap<>();
+
+    static {
+        for (int i = 1; i <= 45; i++) {
+            LOTTO_NUMBER.put(i, new LottoNumber(i));
+        }
+    }
+
     private final int number;
 
-    public LottoNumber(int number) {
-        Validator.isValidNumber(number);
+    LottoNumber(int number) {
         this.number = number;
     }
 
@@ -23,8 +33,12 @@ public class LottoNumber {
         return Integer.hashCode(number);
     }
 
-    public int getNumber() {
-        return this.number;
+    public int getNumber(){
+        return number;
+    }
+
+    public static LottoNumber getLottoNumber(int number) {
+        return LOTTO_NUMBER.get(number);
     }
 
 }
